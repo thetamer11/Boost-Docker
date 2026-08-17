@@ -25,6 +25,7 @@ RUN apt-get update && \
         locales-all \
         vim \
         gdb \
+        scons \
         valgrind && \
     apt-get clean
 
@@ -54,3 +55,6 @@ RUN cd /tmp && \
     ./bootstrap.sh --prefix=/usr/local && \
     ./b2 install && \
     rm -rf /tmp/*
+
+ENV BOOST_HEADERS_DIR=/mnt/addons/boost/ \
+    BOOST_LIB_DIR=/usr/local/lib/
